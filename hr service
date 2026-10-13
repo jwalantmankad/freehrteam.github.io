@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HR Services: PF, ESIC &amp; Professional Tax Calculator | JweLNiK</title>
+<meta name="description" content="Free state-wise PF, ESIC and Professional Tax calculator, state labour laws and latest central updates for Indian businesses. JweLNiK, Gujarat.">
+<style>
+:root{--bg:#fffbe6;--card:#fffef8;--ink:#2b2410;--mute:#6f6640;--acc:#f7c52b;--at:#8a6200;--line:#f5e6a8;--soft:#fff2b5;--on:#2b2200;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff6c4 0,#fffbe6 480px,#fffdf2 100%) fixed;color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+h1,h2,h3,button,select,input,nav,.tag{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{border-bottom:3px solid var(--acc);position:sticky;top:env(safe-area-inset-top,0px);background:rgba(255,246,196,.94);backdrop-filter:blur(6px);z-index:5}
+nav{display:flex;gap:16px;align-items:center;padding:12px 0;overflow-x:auto;white-space:nowrap}
+nav b{color:var(--at);margin-right:auto;font-size:17px}
+nav a{color:var(--mute);text-decoration:none;font-size:14px}
+.hero{padding:40px 0 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+.art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(200,150,0,.25))}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.art{max-width:340px;margin:0 auto}}
+section{border-radius:22px}
+#calc>.card:first-of-type{background:linear-gradient(135deg,#fff8d1,#fffef8)}
+.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 12px}
+.hero h1 span{background:var(--acc);color:var(--on);padding:0 8px;border-radius:6px}
+.hero p{color:var(--mute);max-width:620px;margin:0 0 18px}
+.btn{display:inline-block;background:var(--acc);color:var(--on);padding:11px 20px;border-radius:10px;text-decoration:none;font:700 15px system-ui,sans-serif;margin-right:8px}
+.btn.o{background:transparent;border:2px solid var(--acc);color:var(--ink)}
+section{padding:30px 0}
+h2{font-size:26px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 16px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:999px;font-size:14px;cursor:pointer;white-space:nowrap}
+.tabs button.on{background:var(--acc);color:var(--on);border-color:var(--acc);font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:14px;box-shadow:0 6px 18px rgba(214,160,0,.10)}
+.card h3{margin:0 0 8px;font-size:18px}
+ul{margin:6px 0;padding-left:20px}
+li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--soft);color:var(--at);font-weight:700}
+.tag.no{background:var(--line);color:var(--mute)}
+select,input[type=number]{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:16px}
+select:focus,input:focus{outline:2px solid var(--acc)}
+label{display:block;font:600 13px system-ui,sans-serif;color:var(--mute);margin-bottom:4px}
+.chk{display:flex;gap:8px;align-items:center;font:14px system-ui,sans-serif;color:var(--ink);margin:0}
+.chk input{width:18px;height:18px;accent-color:var(--acc)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.row:last-child{border:0}
+.row span:first-child{color:var(--mute)}
+.row span:last-child{text-align:right}
+.row.t{font-weight:700;background:var(--soft);padding:9px 10px;border-radius:8px;border:0;margin-top:6px}
+.row.t span:first-child{color:var(--ink)}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-family:system-ui,sans-serif;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+a{color:var(--at)}
+.note{font-size:13px;color:var(--mute);background:var(--soft);border-left:4px solid var(--acc);border-radius:8px;padding:10px 12px;margin-top:12px}
+footer{background:#fff1ad;border-top:3px solid var(--acc);padding:24px 0 40px;color:var(--mute);font-size:13px}
+nav a.on{color:var(--ink);font-weight:700;border-bottom:3px solid var(--acc)}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui,sans-serif}
+textarea{min-height:110px;resize:vertical}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:10px}
+summary{cursor:pointer;font:700 15px system-ui,sans-serif}
+details p{margin:8px 0 0;color:var(--mute)}
+.big{font:700 20px system-ui,sans-serif;color:var(--ink);text-decoration:none;word-break:break-all}
+.pg{padding:34px 0 8px}.pg h1{font-size:clamp(28px,6vw,40px);margin:0 0 8px}.pg p{color:var(--mute);max-width:680px}
+footer a{color:var(--at)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav><b><a href="index.html">JweLNiK</a></b><a href="index.html">Home</a><a href="hr.html" class="on">HR Services</a><a href="events.html">Events</a><a href="guide.html">HR Guide</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header>
+
+<main class="wrap">
+<div class="hero"><div>
+<h1>HR rules, <span>explained simply.</span></h1>
+<p>Pick your business type and state, see which HR laws apply, check the latest central notifications, and calculate PF, ESIC and Professional Tax in one go. Updated October 2026.</p>
+<a class="btn" href="#calc">PF + ESIC + PT calculator</a><a class="btn o" href="#central">Latest updates</a>
+</div><div class="art"><svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HR compliance illustration">
+<circle cx="180" cy="150" r="128" fill="#ffe27a"/><circle cx="180" cy="150" r="96" fill="#fff0a8"/>
+<rect x="100" y="44" width="160" height="214" rx="18" fill="#fffef8" stroke="#f2b705" stroke-width="5"/>
+<rect x="140" y="32" width="80" height="28" rx="9" fill="#f7c52b" stroke="#8a6200" stroke-width="3"/>
+<g fill="#ffe27a"><circle cx="128" cy="98" r="11"/><circle cx="128" cy="140" r="11"/><circle cx="128" cy="182" r="11"/></g>
+<g fill="none" stroke="#8a6200" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M122 98l5 5 9-10M122 140l5 5 9-10M122 182l5 5 9-10"/></g>
+<g fill="#f5e6a8"><rect x="150" y="90" width="92" height="9" rx="4"/><rect x="150" y="132" width="76" height="9" rx="4"/><rect x="150" y="174" width="84" height="9" rx="4"/><rect x="150" y="216" width="60" height="9" rx="4"/></g>
+<circle cx="296" cy="72" r="34" fill="#f7c52b" stroke="#8a6200" stroke-width="4"/><circle cx="296" cy="72" r="25" fill="none" stroke="#fff3b0" stroke-width="2.5"/>
+<text x="296" y="85" font-size="36" font-weight="700" text-anchor="middle" font-family="Georgia,serif" fill="#5c4100">₹</text>
+<path d="M66 176l42-16 42 16v38c0 28-20 44-42 54-22-10-42-26-42-54z" fill="#ffc928" stroke="#8a6200" stroke-width="4" stroke-linejoin="round"/>
+<path d="M88 212l14 14 26-30" fill="none" stroke="#5c4100" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="288" cy="196" r="17" fill="#ffd24a" stroke="#8a6200" stroke-width="3"/><path d="M258 262c0-22 13-36 30-36s30 14 30 36z" fill="#ffd24a" stroke="#8a6200" stroke-width="3"/>
+<circle cx="318" cy="214" r="12" fill="#fff0a8" stroke="#8a6200" stroke-width="3"/><path d="M298 262c0-14 9-24 20-24s20 10 20 24z" fill="#fff0a8" stroke="#8a6200" stroke-width="3"/>
+<g fill="#f7c52b"><path d="M48 70l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path d="M330 150l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/><circle cx="60" cy="130" r="5"/><circle cx="214" cy="276" r="5"/></g>
+</svg></div></div>
+
+<section id="calc">
+<h2>🧮 PF + ESIC + PT calculator</h2>
+<p class="sub">Monthly deductions and employer cost, state-wise.</p>
+<div class="card">
+<div class="grid">
+<div><label for="cs">State</label><select id="cs"></select></div>
+<div><label for="cg">Gross salary (₹/month)</label><input type="number" id="cg" value="25000" min="0" inputmode="numeric"></div>
+<div><label for="cm">State minimum Basic (₹/month)</label><input type="number" id="cm" value="0" min="0" inputmode="numeric"></div>
+<div><label for="cb">Basic + DA (₹/month) <span id="cbm" style="color:var(--mute);font-weight:400">auto</span></label><input type="number" id="cb" value="0" min="0" inputmode="numeric" readonly></div>
+</div>
+<div class="grid" style="margin-top:12px">
+<label class="chk"><input type="checkbox" id="cx"> Enter Basic manually (must be at least 50% of Gross and the state minimum)</label>
+<label class="chk"><input type="checkbox" id="cr" checked> Limit PF to the ₹25,000 wage ceiling</label>
+<label class="chk"><input type="checkbox" id="cw"> Female employee (used in Maharashtra PT)</label>
+<label class="chk"><input type="checkbox" id="cf"> Month is February (PT extra in MH, KA)</label>
+</div>
+</div>
+<div class="card" id="co"></div>
+</section>
+
+<section id="entity">
+<h2>🏢 1. Choose your business type</h2>
+<p class="sub">Tap one to see how HR works for it.</p>
+<div class="tabs" id="tabs"></div>
+<div id="entityOut"></div>
+</section>
+
+<section id="state">
+<h2>📍 2. Choose your state</h2>
+<p class="sub">Each state has its own Shops &amp; Establishments law, minimum wages and local taxes.</p>
+<select id="st" aria-label="State"></select>
+<div class="card" id="stOut"></div>
+</section>
+
+<section id="central">
+<h2>🏛️ Central Government: latest updates</h2>
+<p class="sub">India now runs on four Labour Codes. Key dates so far.</p>
+<div class="card tblwrap"><table>
+<tr><th>Date</th><th>Update</th></tr>
+<tr><td>21 Nov 2025</td><td>All four Labour Codes brought into force (Wages, Industrial Relations, Social Security, OSH).</td></tr>
+<tr><td>8 May 2026</td><td>Final Rules under the four Codes notified.</td></tr>
+<tr><td>29 May 2026</td><td>EPF wage ceiling fixed at ₹15,000 under the Social Security Code. Interest on delayed dues set at 12% a year.</td></tr>
+<tr><td>1 Jul 2026</td><td>Fresh EPF, EPS and EDLI Schemes, 2026 notified.</td></tr>
+<tr><td><b>17 Sep 2026</b></td><td><b>EPF wage ceiling raised from ₹15,000 to ₹25,000 per month</b> (S.O. 5109(E)). For September 2026, contribution is split: 1 to 16 Sep on ₹15,000 and 17 to 30 Sep on ₹25,000.</td></tr>
+<tr><td>Unchanged</td><td>ESIC wage ceiling stays at ₹21,000 per month.</td></tr>
+</table></div>
+<div class="note">Existing PF members earning above the ceiling are not affected. Always check the latest EPFO and Ministry notices before filing.</div>
+
+<h2 style="margin-top:28px">📋 Main HR laws at a glance</h2>
+<p class="sub">Usual thresholds. They apply to every business type once you hire enough people.</p>
+<div class="card tblwrap"><table>
+<tr><th>Law</th><th>Applies when</th><th>In simple words</th></tr>
+<tr><td>EPF (Provident Fund)</td><td>20+ employees. Wage ceiling ₹25,000</td><td>12% of wages from employee and 12% from employer (8.33% to pension, 3.67% to PF).</td></tr>
+<tr><td>ESIC</td><td>10+ employees, pay up to ₹21,000/month</td><td>Health insurance and sickness benefits. Employer 3.25%, employee 0.75%.</td></tr>
+<tr><td>Gratuity</td><td>10+ employees</td><td>Paid after 5 years of service (1 year for fixed-term staff). Formula: last pay × 15/26 × years.</td></tr>
+<tr><td>Bonus</td><td>20+ employees</td><td>Yearly bonus, minimum 8.33% of wages for eligible staff.</td></tr>
+<tr><td>Minimum Wages</td><td>All employers</td><td>Pay at least the state-set rate for the job type.</td></tr>
+<tr><td>POSH Act</td><td>10+ employees</td><td>Set up an Internal Committee against sexual harassment at work.</td></tr>
+<tr><td>Maternity Benefit</td><td>10+ employees</td><td>26 weeks paid leave for first two children. Creche if 50+ staff.</td></tr>
+<tr><td>Professional Tax</td><td>State-wise</td><td>Small monthly tax deducted from salary in some states.</td></tr>
+</table></div>
+</section>
+
+<section id="codes">
+<h2>⚖️ The four Labour Codes</h2>
+<p class="sub">29 old labour laws are now merged into four Codes, in force since 21 November 2025.</p>
+<div class="grid">
+<div class="card"><h3>💰 Code on Wages</h3><p>One definition of wages, bonus and equal pay. National floor wage idea.</p></div>
+<div class="card"><h3>🤝 Industrial Relations Code</h3><p>Trade unions, strikes, layoffs, standing orders and fixed-term employment.</p></div>
+<div class="card"><h3>🛡️ Social Security Code</h3><p>PF, ESIC, gratuity and maternity in one law. Includes gig and platform workers.</p></div>
+<div class="card"><h3>👷 OSH Code</h3><p>Safety, health and working conditions, plus licences.</p></div>
+</div>
+<div class="note">Final Rules were notified in May 2026, but states are still publishing their own rules and thresholds. Confirm your state's position on its labour portal.</div>
+</section>
+
+<section id="circulars">
+<h2>🔔 Government circulars &amp; official sources</h2>
+<p class="sub">Go straight to the official source for the newest notices.</p>
+<div class="grid" id="circ"></div>
+<div class="note">This page does not auto-refresh. Ask for a refresh to have the newest circulars added here with their dates.</div>
+</section>
+<section id="more"><h2>📚 Explore more</h2>
+<div class="grid">
+<div class="card"><h3>📘 Compliance Guide</h3><p>PF, ESIC, PT, gratuity, bonus, calendar and checklist.</p><a href="guide.html">Read the guide</a></div>
+<div class="card"><h3>ℹ️ About &amp; Services</h3><p>What this site offers, plus our corporate event services.</p><a href="about.html">About us</a></div>
+<div class="card"><h3>🎉 Corporate Events</h3><p>Annual meets, launches, awards and more.</p><a href="events.html">See event services</a></div>
+<div class="card"><h3>📞 Contact Us</h3><p>Call, WhatsApp, email or send a message.</p><a href="contact.html">Contact us</a></div></div></section>
+</main>
+
+<footer><div class="wrap"><b>JweLNiK</b> · HR Compliance &amp; Corporate Event Management<br>
+Head Office: Ahmedabad · Branch Office: Rajkot, Gujarat<br>
+📞 <a href="tel:+917622004315">7622004315</a> · ✉️ <a href="mailto:jwelnik4315@gmail.com">jwelnik4315@gmail.com</a><br>
+<a href="index.html">Home</a> · <a href="hr.html">HR Services</a> · <a href="events.html">Events</a> · <a href="guide.html">HR Guide</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a><br>
+HR information is general, not legal advice. Laws and rates change; confirm with the official notification or a qualified professional before acting.</div></footer>
+
+<script>
+var E={
+"Proprietorship":{who:"One person owns and runs the business. No separate legal identity.",law:"No special incorporation law. Registered under the state Shops &amp; Establishments Act.",reg:["Shops &amp; Establishments registration","GST if turnover crosses the limit","Udyam (MSME) registration, optional","PF at 20+ staff, ESIC at 10+ staff"],hr:["Owner is not an employee and draws profit, not salary","Give appointment letters and keep attendance and wage registers","Pay at least minimum wages"],tip:"Simplest to start. The owner is personally liable for all dues."},
+"Partnership":{who:"Two or more people run a business together under a partnership deed.",law:"Indian Partnership Act, 1932.",reg:["Partnership deed (stamped)","PAN and optional firm registration with Registrar of Firms","Shops &amp; Establishments, GST as applicable","PF / ESIC when thresholds are met"],hr:["Partners are owners, not employees. Their pay is set in the deed","Staff need appointment letters and payslips","Same wage, PF, ESIC, bonus and gratuity rules as others"],tip:"Partners are personally liable. Write the deed clearly about pay and duties."},
+"Pvt Ltd Company":{who:"A separate legal company with shareholders and directors. 2 to 200 members.",law:"Companies Act, 2013.",reg:["Incorporation with MCA (SPICe+)","PAN, TAN, GST, bank account","PF, ESIC, Professional Tax and Shops registration","Annual filings: AOC-4 and MGT-7"],hr:["Directors are not automatically employees. Paid directors need board approval","Whole-time directors and key managers are covered under company law rules","Employment contracts, payslips, POSH committee, full labour law compliance"],tip:"Liability is limited to the company. Strongest option for hiring and funding."},
+"LLP Firm":{who:"Mix of company and partnership. Partners have limited liability.",law:"Limited Liability Partnership Act, 2008.",reg:["Incorporation with MCA (FiLLiP)","LLP Agreement filed within 30 days","Annual filing: Form 8 and Form 11","PF, ESIC, Shops, GST as needed"],hr:["Designated partners (minimum 2) carry compliance duty","Partners are not employees. Pay follows the LLP agreement","Staff get full labour law protection"],tip:"Lower compliance than a company. Good for professionals and service firms."},
+"Ltd Company":{who:"A public company. Shares can be offered to the public (listed or unlisted).",law:"Companies Act, 2013. Listed ones also follow SEBI rules.",reg:["Minimum 3 directors and 7 members","MCA incorporation and annual filings","Listed: SEBI LODR, board committees","All HR statutory registrations"],hr:["Nomination &amp; Remuneration Committee for listed and large companies","Disclosure of managerial pay and related-party dealings","Strict POSH, whistle-blower and employee policies"],tip:"Most compliance and disclosure. Right for large, funded or listed businesses."}
+};
+var SE="Shops &amp; Establishments Act";
+var S={
+"Andhra Pradesh":["Andhra Pradesh "+SE+", 1988","Yes","Yes","Labour Dept, Andhra Pradesh"],
+"Assam":["Assam "+SE+", 1971","Yes","No","Labour Dept, Assam"],
+"Bihar":["Bihar "+SE+", 1953","Yes","Check locally","Labour Resources Dept, Bihar"],
+"Chhattisgarh":["Chhattisgarh Dukan Aur Sansthan Adhiniyam, 1958","Yes","Yes","Labour Dept, Chhattisgarh"],
+"Delhi":["Delhi "+SE+", 1954","No","Yes","Labour Dept, Delhi"],
+"Goa":["Goa, Daman &amp; Diu "+SE+", 1973","Yes","Yes","Labour Dept, Goa"],
+"Gujarat":["Gujarat "+SE+" (Regulation of Employment and Conditions of Service) Act, 2019","Yes","Yes","Labour &amp; Employment Dept, Gujarat"],
+"Haryana":["Punjab "+SE+", 1958 (as applied in Haryana)","No","Yes","Labour Dept, Haryana"],
+"Himachal Pradesh":["Himachal Pradesh "+SE+", 1969","No","Check locally","Labour Dept, Himachal Pradesh"],
+"Jharkhand":["Jharkhand "+SE+", 2001","Yes","No","Labour Dept, Jharkhand"],
+"Karnataka":["Karnataka Shops &amp; Commercial Establishments Act, 1961","Yes","Yes","Labour Dept, Karnataka"],
+"Kerala":["Kerala Shops &amp; Commercial Establishments Act, 1960","Yes (half-yearly)","Yes","Labour Dept, Kerala"],
+"Madhya Pradesh":["Madhya Pradesh "+SE+", 1958","Yes","Yes","Labour Dept, Madhya Pradesh"],
+"Maharashtra":["Maharashtra "+SE+" (Regulation of Employment and Conditions of Service) Act, 2017","Yes","Yes","Labour Dept, Maharashtra"],
+"Odisha":["Odisha Shops &amp; Commercial Establishments Act, 1956","Yes","Yes","Labour &amp; ESI Dept, Odisha"],
+"Punjab":["Punjab Shops &amp; Commercial Establishments Act, 1958","Yes (₹200 above ₹20,000)","Yes","Labour Dept, Punjab"],
+"Rajasthan":["Rajasthan Shops &amp; Commercial Establishments Act, 1958","No","Check locally","Labour Dept, Rajasthan"],
+"Tamil Nadu":["Tamil Nadu "+SE+", 1947","Yes (half-yearly, local bodies)","Yes","Labour Dept, Tamil Nadu"],
+"Telangana":["Telangana "+SE+", 1988","Yes","Yes","Labour Dept, Telangana"],
+"Uttar Pradesh":["UP Dukan Aur Vanijya Adhishthan Adhiniyam, 1962","No","Check locally","Labour Dept, Uttar Pradesh"],
+"Uttarakhand":["Uttar Pradesh Dookan Aur Vanijya Adhishthan Adhiniyam, 1962 (as applied)","No","Check locally","Labour Dept, Uttarakhand"],
+"West Bengal":["West Bengal "+SE+", 1963","Yes","Yes","Labour Dept, West Bengal"]
+};
+/* Professional Tax: monthly slabs on gross [upper limit, tax]. Kerala and TN are half-yearly slabs shown as monthly equivalent. */
+/* Minimum Basic (Rs/month) by state. Gujarat 13600. Other states: enter your state's current notified rate here (0 = not set). You can also type it in the calculator box. */
+var MB={"Gujarat":13600};
+var B=1e9;
+var P={
+"Maharashtra":[[7500,0],[10000,175],[B,200]],
+"Karnataka":[[24999,0],[B,200]],
+"Gujarat":[[12000,0],[B,200]],
+"West Bengal":[[10000,0],[15000,110],[25000,130],[40000,150],[B,200]],
+"Tamil Nadu":[[21000,0],[30000,22.5],[45000,52.5],[60000,115],[75000,171],[B,208]],
+"Telangana":[[15000,0],[20000,150],[B,200]],
+"Andhra Pradesh":[[15000,0],[20000,150],[B,200]],
+"Kerala":[[11999,0],[17999,20],[29999,30],[44999,50],[59999,75],[74999,100],[99999,125],[124999,166.67],[B,208.33]],
+"Madhya Pradesh":[[18750,0],[25000,125],[33333,167],[B,208]],
+"Odisha":[[13304,0],[25000,125],[B,200]],
+"Bihar":[[25000,0],[41666,83],[83333,166],[B,208]],
+"Assam":[[10000,0],[15000,150],[25000,180],[B,208]],
+"Jharkhand":[[25000,0],[41666,100],[66666,150],[83333,175],[B,208]],
+"Punjab":[[20000,0],[B,200]],
+"Delhi":[],"Haryana":[],"Rajasthan":[],"Uttar Pradesh":[],"Uttarakhand":[],"Himachal Pradesh":[]
+};
+var C=[
+["Ministry of Labour &amp; Employment","Labour Codes, Rules and notifications","https://labour.gov.in"],
+["EPFO","PF circulars, wage ceiling and scheme updates","https://www.epfindia.gov.in"],
+["ESIC","ESI circulars and contribution notices","https://www.esic.gov.in"],
+["Ministry of Corporate Affairs","Companies Act and LLP circulars","https://www.mca.gov.in"],
+["Shram Suvidha / e-Shram","Single portal for labour registrations","https://shramsuvidha.gov.in"],
+["India Code","Official text of all Acts","https://www.indiacode.nic.in"]
+];
+function li(a){return a.map(function(x){return "<li>"+x+"</li>"}).join("")}
+function show(k){
+ var e=E[k];
+ document.getElementById("entityOut").innerHTML=
+ '<div class="card"><h3>'+k+'</h3><p>'+e.who+'</p><p><b>Governing law:</b> '+e.law+'</p></div>'+
+ '<div class="grid"><div class="card"><h3>Registrations</h3><ul>'+li(e.reg)+'</ul></div><div class="card"><h3>HR rules for you</h3><ul>'+li(e.hr)+'</ul></div></div>'+
+ '<div class="note"><b>Good to know:</b> '+e.tip+'</div>';
+ var b=document.querySelectorAll("#tabs button");
+ for(var i=0;i<b.length;i++)b[i].className=b[i].textContent==k?"on":"";
+}
+var t=document.getElementById("tabs");
+Object.keys(E).forEach(function(k){var b=document.createElement("button");b.textContent=k;b.onclick=function(){show(k)};t.appendChild(b)});
+show("Pvt Ltd Company");
+var sel=document.getElementById("st"),cs=document.getElementById("cs");
+Object.keys(S).sort().forEach(function(k){[sel,cs].forEach(function(s){var o=document.createElement("option");o.textContent=k;s.appendChild(o)})});
+function st(){
+ var k=sel.value,s=S[k];
+ function tg(v){return '<span class="tag'+(v.indexOf("No")==0?" no":"")+'">'+v+'</span>'}
+ document.getElementById("stOut").innerHTML=
+ '<div class="row"><span>Shops &amp; Establishments law</span><span>'+s[0]+'</span></div>'+
+ '<div class="row"><span>Professional Tax</span><span>'+tg(s[1])+'</span></div>'+
+ '<div class="row"><span>Labour Welfare Fund</span><span>'+tg(s[2])+'</span></div>'+
+ '<div class="row"><span>Where to check</span><span>'+s[3]+'</span></div>'+
+ '<div class="row"><span>Minimum wages</span><span>Set by the state, by job type and zone. Check the latest state notification.</span></div>'+
+ '<div class="note">Rates and slabs change often. Confirm on the state labour department site before you pay or file.</div>';
+}
+sel.onchange=function(){st();cs.value=sel.value;$("cm").value=MB[cs.value]||0;calc()};
+sel.value="Gujarat";cs.value="Gujarat";st();
+document.getElementById("circ").innerHTML=C.map(function(c){return '<div class="card"><h3>'+c[0]+'</h3><p>'+c[1]+'</p><a href="'+c[2]+'" target="_blank" rel="noopener">Open official site</a></div>'}).join("");
+
+function $(i){return document.getElementById(i)}
+function m(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+function calc(){
+ var s=cs.value,g=+$("cg").value||0,cap=25000,mn=+$("cm").value||0,half=Math.round(g*.5);
+ var man=$("cx").checked,cbx=$("cb");
+ cbx.readOnly=!man;
+ var b,basis;
+ if(man){b=+cbx.value||0;basis="Entered manually"}
+ else{b=Math.max(half,mn);cbx.value=b?b:"";basis=(mn>half)?"State minimum Basic applied (50% of Gross is only "+m(half)+")":"50% of Gross"}
+ var warn=[];
+ if(b<half)warn.push("Basic is below 50% of Gross ("+m(half)+"). Under the Code on Wages, Basic + DA should be at least 50% of total pay.");
+ if(mn&&b<mn)warn.push("Basic is below the "+s+" minimum of "+m(mn)+".");
+ if(mn&&g<mn)warn.push("Gross is below the "+s+" minimum Basic of "+m(mn)+". Gross must be at least that.");
+ if(!mn)warn.push("No minimum Basic is set for "+s+". Type the current notified rate in the box above.");
+ $("cbm").textContent=man?"manual":"auto";
+ var pw=$("cr").checked?Math.min(b,cap):b;
+ var pe=pw*.12,er=pw*.12,eps=Math.min(b,cap)*.0833,epf=er-eps,adm=Math.min(b,cap)*.01;
+ var esic=b>0&&b<21000,ee=esic?Math.ceil(b*.0075):0,eer=esic?Math.ceil(b*.0325):0;
+ var sl=P[s]||[],pt=0,ptn="";
+ if(!sl.length)ptn="No Professional Tax in this state";
+ else{
+  for(var i=0;i<sl.length;i++){if(g<=sl[i][0]){pt=sl[i][1];break}}
+  if(s=="Maharashtra"&&$("cw").checked)pt=g>25000?200:0;
+  if($("cf").checked&&(s=="Maharashtra"||s=="Karnataka")&&pt==200)pt=300;
+  if(s=="Tamil Nadu"||s=="Kerala")ptn="Half-yearly slab shown as monthly equivalent";
+ }
+ var ded=pe+ee+pt,cost=g+er+adm+eer;
+ function r(a,b,c){return '<div class="row'+(c?" t":"")+'"><span>'+a+'</span><span>'+b+'</span></div>'}
+ $("co").innerHTML=
+ '<h3>Employee deductions</h3>'+
+ r("Basic + DA used ("+basis+")",m(b),1)+
+    r("PF (12% on "+m(pw)+")",m(pe))+
+ r("ESIC (0.75% on "+m(b)+")",esic?m(ee):"Not applicable (Basic + DA ₹21,000 or above)")+
+ r("Professional Tax ("+s+")",ptn&&!sl.length?"Nil":m(pt))+
+ r("Total deducted from salary",m(ded),1)+
+ r("Take-home before income tax",m(g-ded),1)+
+ '<h3 style="margin-top:16px">Employer contribution</h3>'+
+ r("PF 12% (pension "+m(eps)+" + PF "+m(epf)+")",m(er))+
+ r("EDLI + admin charges (about 1%)",m(adm))+
+ r("ESIC (3.25% on "+m(b)+")",esic?m(eer):"Not applicable")+
+ r("Total monthly cost to company",m(cost),1)+
+ warn.map(function(w){return '<div class="note" style="border-left-color:#c0392b">⚠ '+w+'</div>'}).join('')+
+ '<div class="note">'+(ptn?ptn+'. ':'')+'PF ceiling ₹25,000 (from 17 Sep 2026), ESIC ceiling ₹21,000. EDLI and admin are shown as 1% for simplicity, and ESIC is calculated on Basic + DA, only when it is below ₹21,000. PT slabs change often, so verify on your state portal. For a fixed filing, use the official EPFO and ESIC portals.</div>';
+}
+["cb","cg","cm","cx","cr","cw","cf"].forEach(function(i){$(i).oninput=calc;$(i).onchange=calc});
+cs.onchange=function(){sel.value=cs.value;st();$("cm").value=MB[cs.value]||0;calc()};
+$("cm").value=MB[cs.value]||0;
+calc();
+</script>
+</body>
+</html>
