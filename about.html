@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>About JweLNiK | Free HR Compliance Help</title>
+<meta name="description" content="JweLNiK is a free HR compliance guide and PF, ESIC and Professional Tax calculator for Indian businesses. Also corporate event management in Gujarat.">
+<style>
+:root{--bg:#fffbe6;--card:#fffef8;--ink:#2b2410;--mute:#6f6640;--acc:#f7c52b;--at:#8a6200;--line:#f5e6a8;--soft:#fff2b5;--on:#2b2200;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#fff6c4 0,#fffbe6 480px,#fffdf2 100%) fixed;color:var(--ink);font:16px/1.6 Georgia,"Times New Roman",serif}
+h1,h2,h3,button,select,input,nav,.tag{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:900px;margin:0 auto;padding:0 18px}
+header{border-bottom:3px solid var(--acc);position:sticky;top:env(safe-area-inset-top,0px);background:rgba(255,246,196,.94);backdrop-filter:blur(6px);z-index:5}
+nav{display:flex;gap:16px;align-items:center;padding:12px 0;overflow-x:auto;white-space:nowrap}
+nav b{color:var(--at);margin-right:auto;font-size:17px}
+nav a{color:var(--mute);text-decoration:none;font-size:14px}
+.hero{padding:40px 0 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:20px;align-items:center}
+.art svg{width:100%;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(200,150,0,.25))}
+@media(max-width:700px){.hero{grid-template-columns:1fr}.art{max-width:340px;margin:0 auto}}
+section{border-radius:22px}
+#calc>.card:first-of-type{background:linear-gradient(135deg,#fff8d1,#fffef8)}
+.hero h1{font-size:clamp(28px,6vw,44px);line-height:1.15;margin:0 0 12px}
+.hero h1 span{background:var(--acc);color:var(--on);padding:0 8px;border-radius:6px}
+.hero p{color:var(--mute);max-width:620px;margin:0 0 18px}
+.btn{display:inline-block;background:var(--acc);color:var(--on);padding:11px 20px;border-radius:10px;text-decoration:none;font:700 15px system-ui,sans-serif;margin-right:8px}
+.btn.o{background:transparent;border:2px solid var(--acc);color:var(--ink)}
+section{padding:30px 0}
+h2{font-size:26px;margin:0 0 6px}
+.sub{color:var(--mute);margin:0 0 16px}
+.tabs{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 14px;border-radius:999px;font-size:14px;cursor:pointer;white-space:nowrap}
+.tabs button.on{background:var(--acc);color:var(--on);border-color:var(--acc);font-weight:700}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-top:14px;box-shadow:0 6px 18px rgba(214,160,0,.10)}
+.card h3{margin:0 0 8px;font-size:18px}
+ul{margin:6px 0;padding-left:20px}
+li{margin:4px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:99px;background:var(--soft);color:var(--at);font-weight:700}
+.tag.no{background:var(--line);color:var(--mute)}
+select,input[type=number]{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font-size:16px}
+select:focus,input:focus{outline:2px solid var(--acc)}
+label{display:block;font:600 13px system-ui,sans-serif;color:var(--mute);margin-bottom:4px}
+.chk{display:flex;gap:8px;align-items:center;font:14px system-ui,sans-serif;color:var(--ink);margin:0}
+.chk input{width:18px;height:18px;accent-color:var(--acc)}
+.row{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.row:last-child{border:0}
+.row span:first-child{color:var(--mute)}
+.row span:last-child{text-align:right}
+.row.t{font-weight:700;background:var(--soft);padding:9px 10px;border-radius:8px;border:0;margin-top:6px}
+.row.t span:first-child{color:var(--ink)}
+.tblwrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:520px}
+th,td{padding:9px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-family:system-ui,sans-serif;color:var(--mute);font-size:12px;text-transform:uppercase;letter-spacing:.04em}
+a{color:var(--at)}
+.note{font-size:13px;color:var(--mute);background:var(--soft);border-left:4px solid var(--acc);border-radius:8px;padding:10px 12px;margin-top:12px}
+footer{background:#fff1ad;border-top:3px solid var(--acc);padding:24px 0 40px;color:var(--mute);font-size:13px}
+
+nav a.on{color:var(--ink);font-weight:700;border-bottom:3px solid var(--acc)}
+input[type=text],input[type=email],input[type=tel],textarea{width:100%;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:16px system-ui,sans-serif}
+textarea{min-height:110px;resize:vertical}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin-top:10px}
+summary{cursor:pointer;font:700 15px system-ui,sans-serif}
+details p{margin:8px 0 0;color:var(--mute)}
+.big{font:700 20px system-ui,sans-serif;color:var(--ink);text-decoration:none;word-break:break-all}
+.pg{padding:34px 0 8px}.pg h1{font-size:clamp(28px,6vw,40px);margin:0 0 8px}.pg p{color:var(--mute);max-width:680px}
+footer a{color:var(--at)}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav><b><a href="index.html">JweLNiK</a></b><a href="index.html">Home</a><a href="hr.html">HR Services</a><a href="events.html">Events</a><a href="guide.html">HR Guide</a><a href="about.html" class="on">About</a><a href="contact.html">Contact</a></nav></div></header>
+<main class="wrap">
+<div class="pg"><h1>About <span style="background:var(--acc);padding:0 8px;border-radius:6px">JweLNiK</span></h1>
+<p>JweLNiK does two things for businesses: simple HR compliance help (PF, ESIC, Professional Tax, wages) and corporate event management. Head office in Ahmedabad, branch in Rajkot, Gujarat.</p>
+<a class="btn" href="hr.html#calc">Try the calculator</a><a class="btn o" href="events.html">Our event services</a><a class="btn o" href="contact.html">Contact us</a></div>
+
+<section><h2>What you get here</h2>
+<div class="grid">
+<div class="card"><h3>🧮 State-wise calculator</h3><p>PF, ESIC and Professional Tax in one place. Enter Gross and get Basic, deductions, take-home and cost to company.</p></div>
+<div class="card"><h3>📍 State laws</h3><p>Shops &amp; Establishments law, Professional Tax and Labour Welfare Fund status for each state.</p></div>
+<div class="card"><h3>🏛️ Central updates</h3><p>Labour Code dates, EPF wage ceiling and links to official circulars.</p></div>
+<div class="card"><h3>📘 Compliance guide</h3><p>Plain-language rules, a monthly calendar and a new-joiner checklist.</p></div></div></section>
+
+<section><h2>Who it is for</h2>
+<div class="card"><ul><li>Owners of proprietorship, partnership, LLP and company businesses</li><li>HR and payroll staff handling monthly salary and statutory payments</li><li>Accountants and consultants who need a quick check on a salary breakup</li></ul></div></section>
+
+<section><h2>How to use it</h2>
+<div class="grid"><div class="card"><h3>1. Pick your state</h3><p>Rules and minimum Basic change by state.</p></div><div class="card"><h3>2. Enter Gross</h3><p>Basic is set to 50% of Gross or the state minimum.</p></div><div class="card"><h3>3. Read the result</h3><p>See deductions, take-home and employer cost, then verify on the official portal.</p></div></div></section>
+
+<section><h2>🎉 Also from JweLNiK: corporate events</h2>
+<p class="sub">We Create, You Celebrate. Head office in Ahmedabad, branch in Rajkot.</p>
+<div class="card"><div class="grid"><ul><li>Annual Meeting</li><li>Customers Meets</li><li>New Product Launch</li></ul><ul><li>Festival Decoration</li><li>Award Ceremony</li><li>Employees Activity (in-house or outside)</li></ul></div><p>Corporate events only. <a href="contact.html">Send an enquiry</a>.</p></div></section>
+
+<section><h2>Accuracy and disclaimer</h2>
+<div class="note">This site gives general information only and is not legal advice. It does not refresh by itself. Laws, ceilings, minimum wages and slabs change, so confirm with the official notification or a qualified professional. Spotted something outdated? <a href="contact.html">Tell us</a>.</div></section>
+</main>
+<footer><div class="wrap"><b>JweLNiK</b> · HR Compliance &amp; Corporate Event Management<br>
+Head Office: Ahmedabad · Branch Office: Rajkot, Gujarat<br>
+📞 <a href="tel:+917622004315">7622004315</a> · ✉️ <a href="mailto:jwelnik4315@gmail.com">jwelnik4315@gmail.com</a><br>
+<a href="index.html">Home</a> · <a href="hr.html">HR Services</a> · <a href="events.html">Events</a> · <a href="guide.html">HR Guide</a> · <a href="about.html">About</a> · <a href="contact.html">Contact</a><br>
+HR information is general, not legal advice. Laws and rates change; confirm with the official notification or a qualified professional before acting.</div></footer>
+
+</body>
+</html>
