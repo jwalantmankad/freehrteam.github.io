@@ -91,87 +91,104 @@ nav b a{color:var(--at);text-decoration:none}
 <div class="grid"><div class="card"><div class="ic" style="font-size:30px">📣</div><h3>Annual Meeting</h3><p>A well-run yearly meet for your whole company: stage, seating, sound, screens and a smooth agenda.</p></div><div class="card"><div class="ic" style="font-size:30px">🤝</div><h3>Customers Meets</h3><p>Bring clients together in a professional setting that builds trust and repeat business.</p></div><div class="card"><div class="ic" style="font-size:30px">🚀</div><h3>New Product Launch</h3><p>A launch with the right look and flow, so your product gets the attention it deserves.</p></div><div class="card"><div class="ic" style="font-size:30px">🪔</div><h3>Festival Decoration</h3><p>Festive decor for your office or venue for Diwali, Navratri and other celebrations.</p></div><div class="card"><div class="ic" style="font-size:30px">🏆</div><h3>Award Ceremony</h3><p>Recognise your best people on a proper stage, with a programme that feels special.</p></div><div class="card"><div class="ic" style="font-size:30px">🎯</div><h3>Employees Activity</h3><p>Team activities in-house or outside the office to build energy and togetherness.</p></div></div></section>
 <!-- PHOTO GALLERY START -->
 <style>
-  .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; padding:20px 0; }
-  .g-item { position:relative; height:180px; border-radius:10px; overflow:hidden; cursor:pointer;
-            background-size:cover; background-position:center; }
-  .g-item::after { content:""; position:absolute; inset:0; }   /* transparent shield */
-  .gallery, .lightbox { -webkit-user-select:none; user-select:none; -webkit-touch-callout:none; }
-  .lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,.9); z-index:9999;
-              align-items:center; justify-content:center; }
-  .lightbox.open { display:flex; }
-  .lb-img { width:85vw; height:80vh; background-size:contain; background-repeat:no-repeat;
-            background-position:center; position:relative; }
-  .lb-img::after { content:""; position:absolute; inset:0; }
-  .lb-close { position:absolute; top:15px; right:25px; color:#fff; font-size:38px; cursor:pointer; }
-  .lb-prev, .lb-next { position:absolute; top:50%; color:#fff; font-size:46px; cursor:pointer; padding:10px; }
-  .lb-prev { left:15px; } .lb-next { right:15px; }
+  .gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;padding:10px 0}
+  .g-item{position:relative;height:180px;border-radius:12px;overflow:hidden;cursor:pointer;background-color:var(--soft);background-size:cover;background-position:center;border:1px solid var(--line);transition:transform .15s}
+  .g-item:hover{transform:scale(1.02)}
+  .g-item::after{content:"";position:absolute;inset:0} /* transparent shield */
+  .gallery,.lightbox{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center}
+  .lightbox.open{display:flex}
+  .lb-img{width:85vw;height:80vh;background-size:contain;background-repeat:no-repeat;background-position:center;position:relative}
+  .lb-img::after{content:"";position:absolute;inset:0}
+  .lb-close{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:22px;color:#fff;font-size:42px;cursor:pointer;line-height:1}
+  .lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);color:#fff;font-size:46px;cursor:pointer;padding:10px}
+  .lb-prev{left:8px}.lb-next{right:8px}
+  .lb-count{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font:14px system-ui,sans-serif}
 </style>
 
-<h2>Photo Gallery</h2>
-<div class="gallery" id="gallery"></div>
+<section id="gallery-section"><h2>Photo Gallery</h2><p class="sub">Moments from our corporate events. Click a photo to view it full screen.</p>
+<div class="gallery" id="gallery"></div></section>
 
 <div class="lightbox" id="lightbox">
   <span class="lb-close" id="lbClose">&times;</span>
   <span class="lb-prev" id="lbPrev">&#10094;</span>
   <div class="lb-img" id="lbImg"></div>
   <span class="lb-next" id="lbNext">&#10095;</span>
+  <div class="lb-count" id="lbCount"></div>
 </div>
 
 <script>
-  Corportate Events Images
-  const Photo= [
+  // Corporate Events Images (files are inside images/events/)
+  var photos = [
     "event01-1.jpg",
     "event02-2.jpg",
-    "event03-3.jpg"
-    "event04-4.jpg"
-    "event05-5.jpg"
-    "event06-6.jpg"
-    "event07-7.jpg"
-    "event08-8.jpg"
-    "event09-9.jpg"
-    "event10-10.jpg"
-    "event11-11.jpg"
-    "event12-12.jpg"
-    "event13-13.jpg"
-    "event14-14.jpg"
-    "event15-15.jpg"
+    "event03-3.jpg",
+    "event04-4.jpg",
+    "event05-5.jpg",
+    "event06-6.jpg",
+    "event07-7.jpg",
+    "event08-8.jpg",
+    "event09-9.jpg",
+    "event10-10.jpg",
+    "event11-11.jpg",
+    "event12-12.jpg",
+    "event13-13.jpg",
+    "event14-14.jpg",
+    "event15-15.jpg",
     "event16-16.jpg"
   ];
 
-  const folder = "images/events/";
-  const gallery = document.getElementById("gallery");
-  const lightbox = document.getElementById("lightbox");
-  const lbImg = document.getElementById("lbImg");
-  let current = 0;
+  var folder = "images/events/";
+  var gallery = document.getElementById("gallery");
+  var lightbox = document.getElementById("lightbox");
+  var lbImg = document.getElementById("lbImg");
+  var lbCount = document.getElementById("lbCount");
+  var current = 0;
 
-  photos.forEach((p, i) => {
-    const d = document.createElement("div");
+  photos.forEach(function(p, i){
+    var d = document.createElement("div");
     d.className = "g-item";
     d.style.backgroundImage = "url('" + folder + p + "')";
-    d.onclick = () => openBox(i);
+    d.onclick = function(){ openBox(i); };
     gallery.appendChild(d);
   });
 
-  function openBox(i){ current = i; lbImg.style.backgroundImage = "url('" + folder + photos[i] + "')"; lightbox.classList.add("open"); }
+  function openBox(i){
+    current = i;
+    lbImg.style.backgroundImage = "url('" + folder + photos[i] + "')";
+    lbCount.textContent = (i + 1) + " / " + photos.length;
+    lightbox.classList.add("open");
+  }
   function closeBox(){ lightbox.classList.remove("open"); }
-  function move(n){ current = (current + n + photos.length) % photos.length; openBox(current); }
+  function move(n){ openBox((current + n + photos.length) % photos.length); }
 
   document.getElementById("lbClose").onclick = closeBox;
-  document.getElementById("lbPrev").onclick = () => move(-1);
-  document.getElementById("lbNext").onclick = () => move(1);
-  lightbox.onclick = e => { if(e.target === lightbox) closeBox(); };
-  document.addEventListener("keydown", e => {
-    if(e.key === "Escape") closeBox();
-    if(e.key === "ArrowLeft") move(-1);
-    if(e.key === "ArrowRight") move(1);
+  document.getElementById("lbPrev").onclick = function(){ move(-1); };
+  document.getElementById("lbNext").onclick = function(){ move(1); };
+  lightbox.onclick = function(e){ if(e.target === lightbox) closeBox(); };
+
+  document.addEventListener("keydown", function(e){
+    if(lightbox.classList.contains("open")){
+      if(e.key === "Escape") closeBox();
+      if(e.key === "ArrowLeft") move(-1);
+      if(e.key === "ArrowRight") move(1);
+    }
+    if((e.ctrlKey || e.metaKey) && ["s","u","p"].indexOf(e.key.toLowerCase()) > -1) e.preventDefault();
   });
 
-  // Block right-click, drag, and common save shortcuts
-  document.addEventListener("contextmenu", e => { if(e.target.closest(".gallery, .lightbox")) e.preventDefault(); });
-  document.addEventListener("dragstart", e => e.preventDefault());
-  document.addEventListener("keydown", e => {
-    if((e.ctrlKey || e.metaKey) && ["s","u","p"].includes(e.key.toLowerCase())) e.preventDefault();
+  // Block right-click and drag on gallery photos
+  document.addEventListener("contextmenu", function(e){
+    if(e.target.closest && e.target.closest(".gallery, .lightbox")) e.preventDefault();
   });
+  document.addEventListener("dragstart", function(e){ e.preventDefault(); });
+
+  // Touch swipe for mobile
+  var sx = 0;
+  lightbox.addEventListener("touchstart", function(e){ sx = e.touches[0].clientX; }, {passive:true});
+  lightbox.addEventListener("touchend", function(e){
+    var dx = e.changedTouches[0].clientX - sx;
+    if(Math.abs(dx) > 50) move(dx < 0 ? 1 : -1);
+  }, {passive:true});
 </script>
 <!-- PHOTO GALLERY END -->
   
@@ -183,7 +200,6 @@ nav b a{color:var(--at);text-decoration:none}
 
 <section><h2>What to tell us in your enquiry</h2>
 <div class="card"><ul><li>Type of event and the date you have in mind</li><li>City and approximate number of guests</li><li>In-house or outside venue (for employee activities)</li><li>Any theme, brand colours or special request</li></ul></div></section>
-<!-- To show real event photos: add an images folder, then a section here with <img src="images/event1.jpg" alt="Annual meeting"> inside a div class="grid" -->
 
 <div class="band"><h2>Planning an event?</h2><p>Send the details and we will get back with a plan.</p>
 <a class="btn" href="contact.html?topic=event#form">Send enquiry</a><a class="btn o" href="https://wa.me/917622004315">WhatsApp</a></div>
